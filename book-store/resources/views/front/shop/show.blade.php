@@ -51,7 +51,7 @@
                                     @endfor
                                 </div>
                             @endif
-                            <span class="text-right">{{count($product->productComments)}} đánh giá</span>
+                            <span class="text-right">{{count($product->productComments)}} feedback</span>
                         </div>
                         <div class="review-product-price">
                             <div class="group-input">
@@ -74,23 +74,23 @@
                         <div class="table-review">
                             <table>
                                 <tr>
-                                    <td>Kích thước</td>
-                                    <td>{{$product->width}} x {{$product->length}} cm</td>
+                                    <td>Size</td>
+                                    <td>{{$product->width}} x {{$product->height}} cm</td>
                                 </tr>
                                 <tr>
-                                    <td>Tác giả</td>
+                                    <td>Author</td>
                                     <td>{{$product->author->name}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Loại bìa</td>
-                                    <td>{{$product->type==1?'Bìa cứng':'Bìa mềm'}}</td>
+                                    <td>Type</td>
+                                    <td>{{$product->type==1?'Hardcover':'Paperback'}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Số trang</td>
+                                    <td>Pages</td>
                                     <td>{{$product->pages}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà xuất bản</td>
+                                    <td>Publisher</td>
                                     <td>{{$product->nxb}}</td>
                                 </tr>
                             </table>
@@ -104,14 +104,14 @@
         </section>
 
         <section class="section-describe">
-            <h2>Mô tả sản phẩm</h2>
+            <h2>Description</h2>
             <div class="describe-content">
                 {!! $product->description!!}
             </div>
         </section>
 
         <section class="section-feedback">
-            <h2>Đánh giá</h2>
+            <h2>Feedback</h2>
             <div class="feedback-content">
                 <div class="row gx-5 gy-5">
                     <div class="col-12 col-lg-6">
@@ -127,7 +127,7 @@
                                         @endif
                                     @endfor
                                 </div>
-                                <p class="feedback-count">{{count($product->productComments)}} đánh giá</p>
+                                <p class="feedback-count">{{count($product->productComments)}} feedback</p>
                             </div>
                         </div>
                         <div class="list-point">
@@ -206,7 +206,7 @@
                                         50+
                                     @endif
                                 </p>
-                                <span>Đánh giá về sản phẩm</span>
+                                <span>Product reviews</span>
                             </div>
                             <div class="feedback-user">
                                 <div class="swiper mySwiper2" style="width: 100%;">

@@ -54,7 +54,7 @@
                             <input required type="submit" id="search-submit">
                         </form>
                         <div class="product-search">
-                            <p>Search history</p>
+                            <p class="m-0">Search history</p>
                             <div class="keys-search">
                                 @foreach(\App\Models\SearchHistory::where('user_id',Auth::id())->orderBy('updated_at','desc')->limit(4)->get() as $search)
                                     <a class="search-keyword" href="./shop?search={{$search->search}}">
@@ -67,8 +67,14 @@
                                         {{$search->search}}
                                     </a>
                                 @endforeach
+                                @if(count(\App\Models\SearchHistory::where('user_id',Auth::id())->orderBy('updated_at','desc')->limit(4)->get())==0)
+                                        <a class="search-keyword">
+                                            You haven't searched for anything yet
+                                        </a>
+                                @endif
 
                             </div>
+                            <p class="m-0">News</p>
                             <div class="product-list">
                                 @foreach(\App\Models\Product::orderBy('created_at','desc')->limit(5)->get() as $product)
                                         <a href="./shop/product/{{$product->id}}" class="product-item">
@@ -244,22 +250,22 @@
 <div class="co-operate container">
     <div class="row">
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-1.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-1.png" alt="">
         </div>
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-2.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-2.png" alt="">
         </div>
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-3.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-3.png" alt="">
         </div>
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-4.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-4.png" alt="">
         </div>
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-5.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-5.png" alt="">
         </div>
         <div class="co-operate-img col-4 col-md-2">
-            <img src="./front/imgs/home-2-client-6.png" alt="">
+            <img src="./front/imgs/footer/home-2-client-6.png" alt="">
         </div>
     </div>
 
@@ -307,7 +313,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-1.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>
@@ -315,7 +321,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-2.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>
@@ -323,7 +329,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-3.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>
@@ -331,7 +337,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-4.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>
@@ -339,7 +345,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-5.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>
@@ -347,7 +353,7 @@
                         <div class="col-4">
                             <div  class="social-media-item">
                                 <div class="social-media-img">
-                                    <img src="./front/imgs/img-1.jpg" alt="">
+                                    <img src="./front/imgs/footer/img-6.jpg" alt="">
                                 </div>
                                 <a href="#">INSTAGRAM</a>
                             </div>

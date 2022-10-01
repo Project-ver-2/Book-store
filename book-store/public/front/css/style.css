@@ -1017,6 +1017,8 @@ display: flex;
   display: flex;
 }
 .top-author .item-author {
+  text-decoration: none;
+  color: inherit;
   text-align: center;
 }
 .top-author .item-author .img-author {
