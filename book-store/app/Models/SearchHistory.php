@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCommentImages extends Model
+class SearchHistory extends Model
 {
     use HasFactory;
-    protected $table = 'product_comment_images';
+    protected $table = 'search_history';
     protected $primaryKey = 'id';
     protected $guarded = [];
 

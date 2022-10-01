@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/book-store/storage/app" />
       <excludeFolder url="file://$MODULE_DIR$/book-store/storage/framework" />
       <excludeFolder url="file://$MODULE_DIR$/book-store/vendor/_laravel_idea" />
+      <excludeFolder url="file://$MODULE_DIR$/book-store/vendor/bumbummen99/shoppingcart" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

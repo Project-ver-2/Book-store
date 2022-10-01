@@ -38,8 +38,8 @@ $(document).ready(function() {
         let zoom  = widthHtml*0.3 / width
         console.log(zoom,widthHtml,width)
         flipbook.turn('next')
-            
-        
+
+
         book.css({
             left : startLeft,
             top : startTop,
@@ -47,7 +47,7 @@ $(document).ready(function() {
             height : height*zoom
         })
 
-    
+
 
         book.animate({
             left : widthHtml/2 -  width*zoom,
@@ -57,7 +57,7 @@ $(document).ready(function() {
         flipbook.animate({
             zoom : zoom
         },750,function(){
-            flipbook.css('zoom',1)  
+            flipbook.css('zoom',1)
             flipbook.turn('zoom',zoom)
             book.css({
                 top : '50%',
@@ -70,10 +70,10 @@ $(document).ready(function() {
     })
 
     $('.wrap-book').mouseup(function(e) {
-        if(!e.target.closest('.flipbook div')){    
+        if(!e.target.closest('.flipbook div')){
             let img = $(this).parents('.product-img').find('.img')
             let book = $(this).find('.book')
-            let flipbook = $(this).find('.flipbook') 
+            let flipbook = $(this).find('.flipbook')
             let width = img.width()
             let height = img.height()
             // let width = 120
@@ -83,7 +83,7 @@ $(document).ready(function() {
             let widthBook = book.width()
             let zoom = 2*width/widthBook
             console.log(book,widthBook)
-    
+
             flipbook.turn('page',1)
             book.animate({
                 left: left + width/2,
@@ -91,14 +91,14 @@ $(document).ready(function() {
                 width : width*2,
                 height : height,
             },800)
-    
+
             let wrap = $(this)
             wrap.css("background","transparent")
-    
+
             flipbook.animate({
                 zoom : zoom
             },800,function(){
-                flipbook.css('zoom',1)  
+                flipbook.css('zoom',1)
                 flipbook.turn('zoom',1)
                 wrap.hide()
                 $(wrap).attr('style','')
@@ -111,7 +111,7 @@ $(document).ready(function() {
     })
 
 
-    $('.product-content').click(function(e) {  
+    $('.product-content').click(function(e) {
         let addCart = e.target.closest('.add-product')
         if(addCart){
             $(addCart).removeClass('add-product')
@@ -131,22 +131,22 @@ $(document).ready(function() {
                 zoom : 1,
             })
             $('body').append(imgEl)
-    
+
             let cartTop = $('.header-select-showcart svg')
-    
+
             let moveLeft = cartTop.get(0).getBoundingClientRect().x
             let moveTop = cartTop.get(0).getBoundingClientRect().y
             let priceNew =  $('.price-new')
             let priceOld = $('.price-old')
-    
+
             priceNew.animate({
                 top: '0'
             },800)
-    
+
             priceOld.animate({
                 opacity :0
             },400)
-    
+
             $(imgEl).animate({
                 top : moveTop+12,
                 left : moveLeft+12,
@@ -162,12 +162,12 @@ $(document).ready(function() {
                 $(addCart).addClass('add-product')
             })
         }
-   
-        
+
     })
 
-    
-
+    $('.add-product').click(function (){
+        price = $(this).attr('price')
+    })
 })
 
 

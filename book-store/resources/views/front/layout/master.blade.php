@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="{{asset('/')}}">
+    <link rel="icon" type="image/x-icon" href="./front/imgs/shradha.svg">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -14,6 +18,10 @@
     <link rel="stylesheet" href="./front/css/style.css">
     <link rel="stylesheet" href="./front/css/address.css">
     <link rel="stylesheet" href="./front/css/new-address.css">
+    <link rel="stylesheet" href="./front/css/mycart.css">
+    <link rel="stylesheet" href="./front/css/login.css">
+    <link rel="stylesheet" href="./front/css/history.css">
+    <link rel="stylesheet" href="./front/css/product-info.css">
     <link rel="stylesheet" href="./front/css/keyframe.css">
     <link rel="stylesheet" href="./front/css/responsives.css">
     <title>@yield('title')</title>
@@ -34,8 +42,7 @@
                 <div class="menu-content">
                     <div class="menu-content-layout">
                         <form method="get" id="form-search" action="./shop">
-                            @csrf
-                            <input type="text" id="search-box" class="hide-input" name="search">
+                            <input required type="text" id="search-box" class="hide-input" name="search">
                             <label for="search-box">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="21.111" height="21.623" viewBox="0 0 21.111 21.623">
                                     <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(0.625 0.625)">
@@ -44,127 +51,33 @@
                                     </g>
                                 </svg>
                             </label>
-                            <input type="submit" id="search-submit">
+                            <input required type="submit" id="search-submit">
                         </form>
                         <div class="product-search">
-                            <p>Tìm kiếm sản phẩm</p>
+                            <p>Search history</p>
                             <div class="keys-search">
-                                <a class="search-keyword" href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.523" height="13.662" viewBox="0 0 13.523 13.662">
-                                        <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(0.5 0.5)">
-                                            <path id="Path_8" data-name="Path 8" d="M11.875,6.875a5.062,5.062,0,0,1-3.384,4.733,4.72,4.72,0,0,1-1.616.267,5,5,0,1,1,5-5Z" transform="translate(-1.875 -1.875)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                            <path id="Path_9" data-name="Path 9" d="M13.6,13.735l-3.189-3.328" transform="translate(-1.28 -1.28)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                        </g>
-                                    </svg>
-                                    Đắc nhân tâm
-                                </a>
-                                <a class="search-keyword" href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.523" height="13.662" viewBox="0 0 13.523 13.662">
-                                        <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(0.5 0.5)">
-                                            <path id="Path_8" data-name="Path 8" d="M11.875,6.875a5.062,5.062,0,0,1-3.384,4.733,4.72,4.72,0,0,1-1.616.267,5,5,0,1,1,5-5Z" transform="translate(-1.875 -1.875)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                            <path id="Path_9" data-name="Path 9" d="M13.6,13.735l-3.189-3.328" transform="translate(-1.28 -1.28)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                        </g>
-                                    </svg>
-                                    Cha giàu cha nghèo
-                                </a>
-                                <a class="search-keyword" href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.523" height="13.662" viewBox="0 0 13.523 13.662">
-                                        <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(0.5 0.5)">
-                                            <path id="Path_8" data-name="Path 8" d="M11.875,6.875a5.062,5.062,0,0,1-3.384,4.733,4.72,4.72,0,0,1-1.616.267,5,5,0,1,1,5-5Z" transform="translate(-1.875 -1.875)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                            <path id="Path_9" data-name="Path 9" d="M13.6,13.735l-3.189-3.328" transform="translate(-1.28 -1.28)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                                        </g>
-                                    </svg>
-                                    Ngôn tình
-                                </a>
+                                @foreach(\App\Models\SearchHistory::where('user_id',Auth::id())->orderBy('updated_at','desc')->limit(4)->get() as $search)
+                                    <a class="search-keyword" href="./shop?search={{$search->search}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.523" height="13.662" viewBox="0 0 13.523 13.662">
+                                            <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(0.5 0.5)">
+                                                <path id="Path_8" data-name="Path 8" d="M11.875,6.875a5.062,5.062,0,0,1-3.384,4.733,4.72,4.72,0,0,1-1.616.267,5,5,0,1,1,5-5Z" transform="translate(-1.875 -1.875)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                                                <path id="Path_9" data-name="Path 9" d="M13.6,13.735l-3.189-3.328" transform="translate(-1.28 -1.28)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                                            </g>
+                                        </svg>
+                                        {{$search->search}}
+                                    </a>
+                                @endforeach
 
                             </div>
                             <div class="product-list">
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-                                <a href="#" class="product-item">
-                                    <div class="product-item-img">
-                                        <img src="./front/imgs/dacnhantam.jpg" alt="">
-                                    </div>
-                                    <p class="product-item-name">Đắc nhân tâm</p>
-                                </a>
-
+                                @foreach(\App\Models\Product::orderBy('created_at','desc')->limit(5)->get() as $product)
+                                        <a href="./shop/product/{{$product->id}}" class="product-item">
+                                            <div class="product-item-img">
+                                                <img src="./front/imgs/products/{{$product->productImages[0]->path}}" alt="">
+                                            </div>
+                                            <p class="product-item-name">{{$product->name}}</p>
+                                        </a>
+                                @endforeach
 
                             </div>
                             <hr>
@@ -180,11 +93,11 @@
                                         </span>
                                 </div>
                                 <div class="menu-toggle-sub">
-                                    <a class="menu-link">
+                                    <a class="menu-link" href="./shop">
                                         All Product
                                     </a>
                                     @foreach($categories as $category)
-                                        <a href="./shop/?p={{$category->name}}" class="menu-link">
+                                        <a href="./shop/{{$category->name}}" class="menu-link">
                                             {{$category->name}}
                                         </a>
                                     @endforeach
@@ -198,32 +111,8 @@
                             <a class="menu-link">
                                 Blog
                             </a>
-                            <div class="toggle-link">
-                                <div class="menu-link">
-                                    Others
-                                    <span class="icon-rotate">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14.739" height="7.885" viewBox="0 0 14.739 7.885">
-                                                <path id="Icon_metro-chevron-thin-down" data-name="Icon metro-chevron-thin-down" d="M16.354,6.092a.6.6,0,0,1,.839,0,.583.583,0,0,1,0,.83l-6.776,6.71a.6.6,0,0,1-.839,0L2.8,6.922a.583.583,0,0,1,0-.83.6.6,0,0,1,.839,0L10,12.211Z" transform="translate(-2.627 -5.919)"/>
-                                            </svg>
-                                        </span>
-                                </div>
-                                <div class="menu-toggle-sub">
-                                    <a class="menu-link">
-                                        CD/DVD
-                                    </a>
-                                    <a class="menu-link">
-                                        Stationery
-                                    </a>
-                                    <a class="menu-link">
-                                        Toy
-                                    </a>
-                                    <a class="menu-link">
-                                        E-reader
-                                    </a>
-                                </div>
-                            </div>
                             <div class="menu-footer">
-                                <a href="#" class="menu-footer-link">
+                                <a href="./account/history" class="menu-footer-link">
                                     History
                                     <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="32" viewBox="0 0 26 32">
@@ -237,7 +126,7 @@
                                               </svg>
                                         </span>
                                 </a>
-                                <a href="#" class="menu-footer-link">
+                                <a href="./account/address" class="menu-footer-link">
                                     Addresses
                                     <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="35" viewBox="0 0 29 35">
@@ -256,7 +145,8 @@
                                             </svg>
                                         </span>
                                 </a>
-                                <a href="#" class="menu-footer-link">
+                                @if(Auth::id())
+                                    <a href="./logout" class="menu-footer-link">
                                     Log out
                                     <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="29.243" height="24.75" viewBox="0 0 29.243 24.75">
@@ -266,8 +156,9 @@
                                                 </g>
                                             </svg>
 
-                                        </span>
+                                    </span>
                                 </a>
+                                @endif
                             </div>
 
                         </div>
@@ -282,14 +173,18 @@
                     <div class="menu-btn"></div>
                 </button>
             </div>
-            <a href="#" class="header-logo">
+            <a href="./" class="header-logo">
                 <img src="./front/imgs/shradha.svg" alt="">
             </a>
             <div class="header-right">
                 <div class="header-user">
+                    @if(Auth::id())
                         <a href="#" class="header-user-signin">
-                            Login
+                            {{Auth::user()->name}}
                         </a>
+                    @else
+                        <a class="toggle-form-login header-user-signin" style="cursor: pointer">Login</a>
+                    @endif
                 </div>
                 <div class="header-select">
                     <button class="header-select-search">
@@ -300,7 +195,7 @@
                             </g>
                         </svg>
                     </button>
-                    <a class="header-select-showcart">
+                    <a class="header-select-showcart" href="./cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.588" height="20.663" viewBox="0 0 21.588 20.663">
                             <g id="Icon_feather-shopping-cart" data-name="Icon feather-shopping-cart" transform="translate(0.625 0.625)">
                                 <path id="Path_5" data-name="Path 5" d="M6.25,13.125a.625.625,0,1,1-.625-.625A.625.625,0,0,1,6.25,13.125Z" transform="translate(1.681 5.663)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
@@ -309,8 +204,8 @@
                             </g>
                         </svg>
                         <div class="animate-price d-none d-md-block">
-                            <span class="price-old">148.5$</span>
-                            <span class="price-new">165.5$</span>
+                            <span class="price-old">${{$totalCart}}</span>
+                            <span class="price-new">${{$totalCart}}</span>
                         </div>
 
                     </a>
@@ -333,7 +228,7 @@
             </li>
             @for($i=0;$i<8;$i++)
                 <li>
-                    <a href="./shop?p={{$categories[$i]->name}}">{{$categories[$i]->name}}</a>
+                    <a href="./shop/{{$categories[$i]->name}}">{{$categories[$i]->name}}</a>
                 </li>
             @endfor
 
@@ -400,7 +295,7 @@
                     <h5>News & Update</h5>
                     <p class="contact-footer">We’d love it if you subscribed to our newsletter! You’ll love it too.</p>
                     <form action="" class="footer-form">
-                        <input type="text" name="" id="" placeholder="Email">
+                        <input required type="text" name="" id="" placeholder="Email">
                         <button><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -478,26 +373,104 @@
         <div class="shelf"></div>
     </div>
 </div>
+<div class="login-register"
+    @if(session('auth'))
+        load="1"
+    @else
+         load="0"
+        @if(session('register'))
+         register="1"
+        @endif
+    @endif
+>
+    <div class="wrap-login">
+        <button class="btn btn-close-m"><i class="fa-light fa-xmark"></i></button>
+        <h2>Sign in</h2>
+        <p>Don't have an account yet? <a class="show-register">Sign up here</a>
+        <div style="margin-bottom: 24px;">
+            <a class="login-gg" href=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                    <defs>
+                        <clipPath id="clip-path">
+                            <rect id="Rectangle_18" data-name="Rectangle 18" width="20" height="20" transform="translate(903 360)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                        </clipPath>
+                    </defs>
+                    <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(-903 -360)" clip-path="url(#clip-path)">
+                        <g id="popup_close-i" transform="translate(903 360)">
+                            <path id="Path_29" data-name="Path 29" d="M10,3.958a5.435,5.435,0,0,1,3.837,1.5L16.692,2.6A9.619,9.619,0,0,0,10,0,9.995,9.995,0,0,0,1.067,5.508L4.392,8.087A5.97,5.97,0,0,1,10,3.958Z" fill="#ea4335"/>
+                            <path id="Path_30" data-name="Path 30" d="M19.575,10.229a12.163,12.163,0,0,0-.158-1.9H10v3.758h5.392A4.648,4.648,0,0,1,13.4,15.083l3.221,2.5a9.8,9.8,0,0,0,2.954-7.354Z" fill="#4285f4"/>
+                            <path id="Path_31" data-name="Path 31" d="M4.387,11.912A6.074,6.074,0,0,1,4.071,10a5.958,5.958,0,0,1,.317-1.913L1.062,5.508a10.008,10.008,0,0,0,0,8.983Z" fill="#fbbc05"/>
+                            <path id="Path_32" data-name="Path 32" d="M10,20a9.517,9.517,0,0,0,6.621-2.421l-3.221-2.5a6.055,6.055,0,0,1-9.012-3.171L1.062,14.487A10,10,0,0,0,10,20Z" fill="#34a853"/>
+                            <path id="Path_33" data-name="Path 33" d="M0,0H20V20H0Z" fill="none"/>
+                        </g>
+                    </g>
+                </svg>
+                Sign in with Google
+            </a>
+        </div>
+        <span class="or">OR</span>
+
+        <form action="./login" class="form-login" method="post">
+            @csrf
+            @if(session('notification'))
+                <p class="alert alert-danger">{{session('notification')}}</p>
+            @endif
+            <input required type="email" class="login-input" placeholder="Email" name="email">
+            <input required type="password" class="login-input" placeholder="Password" name="password">
+            <a class="forgot-pw" href="">Forgot password?</a>
+            <button class="btn btn-submit">Sign In</button>
+        </form>
+
+        </p>
+    </div>
+    <div class="wrap-register">
+        <button class="btn btn-close-m"><i class="fa-light fa-xmark"></i></button>
+        <h2>Create account</h2>
+        <p>Already have an account?<a class="show-login">Login here</a>
+        <div style="margin-bottom: 24px;">
+            <a class="login-gg" href=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                    <defs>
+                        <clipPath id="clip-path">
+                            <rect id="Rectangle_18" data-name="Rectangle 18" width="20" height="20" transform="translate(903 360)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                        </clipPath>
+                    </defs>
+                    <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(-903 -360)" clip-path="url(#clip-path)">
+                        <g id="popup_close-i" transform="translate(903 360)">
+                            <path id="Path_29" data-name="Path 29" d="M10,3.958a5.435,5.435,0,0,1,3.837,1.5L16.692,2.6A9.619,9.619,0,0,0,10,0,9.995,9.995,0,0,0,1.067,5.508L4.392,8.087A5.97,5.97,0,0,1,10,3.958Z" fill="#ea4335"/>
+                            <path id="Path_30" data-name="Path 30" d="M19.575,10.229a12.163,12.163,0,0,0-.158-1.9H10v3.758h5.392A4.648,4.648,0,0,1,13.4,15.083l3.221,2.5a9.8,9.8,0,0,0,2.954-7.354Z" fill="#4285f4"/>
+                            <path id="Path_31" data-name="Path 31" d="M4.387,11.912A6.074,6.074,0,0,1,4.071,10a5.958,5.958,0,0,1,.317-1.913L1.062,5.508a10.008,10.008,0,0,0,0,8.983Z" fill="#fbbc05"/>
+                            <path id="Path_32" data-name="Path 32" d="M10,20a9.517,9.517,0,0,0,6.621-2.421l-3.221-2.5a6.055,6.055,0,0,1-9.012-3.171L1.062,14.487A10,10,0,0,0,10,20Z" fill="#34a853"/>
+                            <path id="Path_33" data-name="Path 33" d="M0,0H20V20H0Z" fill="none"/>
+                        </g>
+                    </g>
+                </svg>
+                Sign in with Google
+            </a>
+        </div>
+        <span class="or">OR</span>
+        <form action="./register" class="form-login" method="post">
+            @csrf
+            @if(session('register'))
+                <p class="alert alert-danger">{{session('register')}}</p>
+            @endif
+            <input required type="text" name="name" class="login-input" placeholder="Name" value="{{isset($name)?$name:''}}">
+            <input required type="email" class="login-input" name="email" placeholder="Email" value="{{isset($email)?$email:''}}">
+            <input required type="password" class="login-input" name="password" placeholder="Password" >
+            <input required type="password" class="login-input" name="re_password" placeholder="Re-password" >
+            <button class="btn btn-submit">Sign Up</button>
+        </form>
+
+        </p>
+    </div>
+</div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="./front/js/animate.js"></script>
 <script src="./front/js/lib/turn.js"></script>
 <script src="./front/js/reviewBook.js"></script>
 <script src="./front/js/fill-address.js"></script>
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        cssMode: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        mousewheel: true,
-        keyboard: true,
-    });
-</script>
+<script src="./front/js/price.js"></script>
+<script src="./front/js/mycart_qty.js"></script>
+<script src="./front/js/add-product.js"></script>
+
 </body>
 </html>

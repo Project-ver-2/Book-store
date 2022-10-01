@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('default-avatar.png');
             $table->timestamps();
         });
     }

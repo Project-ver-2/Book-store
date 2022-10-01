@@ -33,11 +33,11 @@
         </div>
     </div>
     <div class="product-content">
-        <a href="#">
+        <a href="./shop/product/{{$product->id}}">
             <span class="product-content-title">{{$product->name}}</span>
             <span class="product-content-price">${{$product->price}}</span>
         </a>
-        <button class="add-product">
+        <button class="add-product" product="{{$product->id}}" price="{{$product->price}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.588" height="20.663" viewBox="0 0 21.588 20.663">
                 <g id="Group_560" data-name="Group 560" transform="translate(-5.8 -12.168)">
                     <g id="Icon_feather-shopping-cart" data-name="Icon feather-shopping-cart" transform="translate(6.425 12.793)">

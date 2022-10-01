@@ -488,7 +488,8 @@ label[for=search-box], label[for=search-submit] {
 .product-search .keys-search a {
   padding-left: 12px;
   font-weight: 400;
-  display: block;
+display: flex;
+    align-items: center;
   line-height: 36px;
   text-decoration: none;
   color: #000;
@@ -496,7 +497,7 @@ label[for=search-box], label[for=search-submit] {
 .product-search .keys-search a svg {
   position: relative;
   top: 2px;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 .product-search .keys-search a:hover {
   background-color: #e8f0fe;
@@ -1024,6 +1025,7 @@ label[for=search-box], label[for=search-submit] {
 }
 .top-author .item-author .img-author img{
     width: 75%;
+    margin: 0 auto;
     border-radius: 50%;
 }
 .top-author .item-author .name-author {
@@ -1167,5 +1169,13 @@ label[for=search-box], label[for=search-submit] {
   border-radius: 12px;
   padding: 8px;
 }
-
+.d-flex-center input{
+    border: 1px solid #ccc;
+}
+.method-name p{
+    margin: 0;
+}
+.product-item-name{
+    text-align: right;
+}
 /*# sourceMappingURL=style.css.map */

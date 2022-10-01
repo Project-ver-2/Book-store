@@ -21,7 +21,8 @@
   line-height: 20px;
 }
 .address-item p .icon-default svg {
-  transform: translate(4px, 3px);
+  transform: translate(4px, 0px);
+  display: inline;
 }
 .address-item .edit-address {
   display: flex;

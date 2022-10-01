@@ -8,6 +8,12 @@ const label = document.querySelector('#form-search').querySelector('label')
 
 $(window).on('load', function(event) {
     $('.loading').hide()
+    if($('.toggle-form-login').length){
+        $('.toggle-form-login').click()
+        if(document.querySelector('.login-register').getAttribute('register')==1){
+            $('.show-register').click()
+        }
+    }
 });
 
 function showInputSearch() {
@@ -188,3 +194,56 @@ $('.toggle-filter').click(function(){
     }
 
 })
+
+$('.toggle-form-login').click(function (){
+    $('.login-register').css('display','flex')
+    $('.wrap-login').show()
+    $('.wrap-register').hide()
+    $('.wrap-register').css('top','-250px')
+
+    $('.wrap-login').animate({
+        opacity : 1,
+        top: 0
+    },500)
+})
+
+$('.login-register').click(function(e){
+    if(e.target.closest('.btn-close-m') || !e.target.closest('.wrap-login') &&  !e.target.closest('.wrap-register')){
+        $('.wrap-login').animate({
+            opacity : 0,
+            top: -250
+        },500)
+        $('.login-register').fadeToggle(500)
+    }
+})
+
+$('.show-register').click(function (){
+    $('.wrap-login').animate({
+        opacity : 0
+    },500,function (){
+        $('.wrap-login').css('top','-250px')
+        $('.wrap-login').hide()
+        $('.wrap-register').show()
+        $('.wrap-register').animate({
+            opacity : 1,
+            top: 0
+        },500)
+    })
+})
+
+$('.show-login').click(function (){
+    $('.wrap-register').animate({
+        opacity : 0
+    },500,function (){
+        $('.wrap-register').css('top','-250px')
+        $('.wrap-register').hide()
+        $('.wrap-login').show()
+        $('.wrap-login').animate({
+            opacity : 1,
+            top: 0
+        },500)
+    })
+})
+
+
+

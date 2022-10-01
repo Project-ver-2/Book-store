@@ -15,4 +15,10 @@ class Order extends Model
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class,'order_id','id');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+    public function address(){
+        return $this->belongsTo(UserAdress::class,'user_address_id','id');
+    }
 }

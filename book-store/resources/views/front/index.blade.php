@@ -27,7 +27,7 @@
         <section class="bestselling">
             <div class="bestselling-title">
                 <h1><span class="title-bold">Best</span> <span class="title-border">Selling</span></h1>
-                <a class="link-showall" href="#">Show all</a>
+                <a class="link-showall" href="./shop">Show all</a>
             </div>
 
             <div class="bestselling-product products">
@@ -63,4 +63,19 @@
 
 
     </div>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+    </script>
 @endsection

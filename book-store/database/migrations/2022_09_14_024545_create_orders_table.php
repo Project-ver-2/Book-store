@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->integer('user_address_id')->unsigned();
+            $table->string('email');
             $table->string('payment_type');
             $table->integer('status');
 

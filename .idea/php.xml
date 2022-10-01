@@ -109,6 +109,7 @@
       <path value="$PROJECT_DIR$/book-store/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/book-store/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/book-store/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/book-store/vendor/bumbummen99/shoppingcart" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

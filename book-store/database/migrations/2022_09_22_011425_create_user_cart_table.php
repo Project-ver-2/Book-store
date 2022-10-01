@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_comment_images', function (Blueprint $table) {
+        Schema::create('user_cart', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_comment_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('product_id')->unsigned();
+            $table->integer('qty')->default(1);
+            $table->double('price');
+            $table->double('total');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_comment_images');
+        Schema::dropIfExists('user_cart');
     }
 };

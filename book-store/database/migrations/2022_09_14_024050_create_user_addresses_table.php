@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('district');
             $table->string('ward');
-            $table->string('street');
-            $table->string('describe');
+            $table->string('describe')->nullable();
             $table->timestamps();
         });
     }

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\UserAdress;
+use App\Models\UserCart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -14,7 +18,10 @@ class AddressController extends Controller
      */
     public function index()
     {
-        return view('front.account.address.index');
+        $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
+        $categories = Category::all();
+        $addresses = UserAdress::where('user_id',Auth::id())->get();
+        return view('front.account.address.index',compact('totalCart','categories','addresses'));
     }
 
     /**
@@ -24,7 +31,9 @@ class AddressController extends Controller
      */
     public function create()
     {
-        return view('front.account.address.create');
+        $categories = Category::all();
+        $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
+        return view('front.account.address.create',compact('categories','totalCart'));
     }
 
     /**
@@ -35,7 +44,17 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        if(isset($data['default']) || count(Auth::user()->userAdresses)==0){
+            $data['default']=1;
+            UserAdress::where('user_id',Auth::id())->update(['default'=>0]);
+        }else{
+            $data['default']=0;
+        }
+
+        UserAdress::create($data);
+        return redirect('./account/address');
     }
 
     /**
@@ -57,7 +76,10 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        return view('front.account.address.edit');
+        $categories = Category::all();
+        $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
+        $address = UserAdress::find($id);
+        return view('front.account.address.edit',compact('categories','totalCart','address'));
     }
 
     /**
@@ -69,7 +91,15 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        if(isset($data['default'])){
+            $data['default']=1;
+            UserAdress::where('user_id',Auth::id())->update(['default'=>0]);
+        }else{
+            $data['default']=0;
+        }
+        UserAdress::where('id',$id)->update($data);
+        return redirect('./account/address');
     }
 
     /**
@@ -80,6 +110,7 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        UserAdress::find($id)->delete();
+        return  redirect('./account/address');
     }
 }

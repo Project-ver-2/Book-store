@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-
             $table->integer('author_id')->unsigned();
             $table->integer('product_category_id');
             $table->string('nxb');
@@ -23,14 +22,14 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('content')->nullable();
             $table->integer('type')->nullable();//Loại bìa cứng,mềm
-            $table->double('length')->nullable();
-            $table->double('height')->nullable();
             $table->double('weight')->nullable();
+            $table->double('height')->nullable();
+            $table->double('width')->nullable();
             $table->integer('pages')->nullable();//Số trang
             $table->string('pub_year')->nullable();
             $table->integer('qty')->default(0);
             $table->double('price')->default(0);
-            $table->double('discount')->nullable();
+            $table->double('discount')->default(0);
             $table->boolean('featured')->default(true);
             $table->timestamps();
         });

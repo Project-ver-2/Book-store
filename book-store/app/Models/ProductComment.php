@@ -19,9 +19,4 @@ class ProductComment extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }
-
-    public function commentImages()
-    {
-        return $this->hasMany(ProductCommentImages::class,'product_comment_id','id');
-    }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +16,53 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            [
+                'id' => 1,
+                'name' => 'CodeLean',
+                'email' => 'CodeLean@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => null,
+                'level' => 1,
+                'description' => null,
+            ],
+            [
+                'id' => 2,
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => null,
+                'level' => 1,
+                'description' => null,
+            ],
+            [
+                'id' => 3,
+                'name' => 'Shane Lynch',
+                'email' => 'ShaneLynch@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => 'avatar-0.png',
+                'level' => 2,
+                'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo'
+            ],
+            [
+                'id' => 4,
+                'name' => 'Brandon Kelley',
+                'email' => 'BrandonKelley@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => 'avatar-1.png',
+                'level' => 2,
+                'description' => null,
+            ],
+            [
+                'id' => 5,
+                'name' => 'Roy Banks',
+                'email' => 'RoyBanks@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => 'avatar-2.png',
+                'level' => 2,
+                'description' => null,
+            ],
+        ]);
         DB::table('authors')->insert([
             [
                 'name' =>'Nguyễn Nhật Ánh',
@@ -39,32 +87,32 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' =>'Nguyễn Ngọc Thạch',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ],
             [
                 'name' =>'Hamlet Trương',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ],
             [
                 'name' =>'Iris Cao',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ],
             [
                 'name'=>'Sơn Paris',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ],
             [
                 'name'=>'Dương Thụy',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ],
             [
                 'name'=>'Rosie Nguyễn',
-                'avatar' => '',
+                'avatar' => 'default-avatar.png',
                 'description'=>''
             ]
         ]);
@@ -143,13 +191,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>3,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -161,13 +209,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>4,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -179,13 +227,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>2.5,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -197,13 +245,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>3,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -215,13 +263,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>2,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -233,13 +281,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>4.2,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -251,13 +299,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>3.9,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -269,13 +317,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>3.9,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -287,13 +335,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>2.9,
                 'discount'=>1,
                 'featured'=>1,
             ],
@@ -305,13 +353,13 @@ class DatabaseSeeder extends Seeder
                 'description'=>'',
                 'content'=>'',
                 'type'=>1,//1 là bìa cứng
-                'length'=>27,
+                'weight'=>27,
                 'height'=>45,
-                'weight'=>20,
+                'width'=>20,
                 'pages'=>200,
                 'pub_year'=>'2021',
                 'qty'=>20,
-                'price'=>10,
+                'price'=>2.5,
                 'discount'=>1,
                 'featured'=>1,
             ]

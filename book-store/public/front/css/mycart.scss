@@ -40,15 +40,15 @@
             border-bottom: 1px solid #000;
         }
         th{
-            padding: 12px 0; 
-        } 
+            padding: 12px 0;
+        }
         .tr-product th,.tr-foot th{
             padding: 20px 0;
             vertical-align: middle;
-        }  
+        }
         .th-qty,.th-price{
             text-align: center;
-        }   
+        }
         .th-total{
             text-align: right;
         }
@@ -76,7 +76,7 @@
         }
     }
     .control-qty{
-        margin-left: 60px;
+        margin-left: 24px;
         position: relative;
         display: flex;
         align-items: center;
