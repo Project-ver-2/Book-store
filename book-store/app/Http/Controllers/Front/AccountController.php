@@ -21,7 +21,7 @@ class AccountController extends Controller
         $remember = $request->remember;
 
         if(Auth::attempt($credentials,$remember)){
-            return redirect()->intended('');
+            return redirect()->intended();
         }else{
             return back()->with('notification','Wrong login information');
         }

@@ -50,8 +50,6 @@
                     @foreach($authors as $author)
                         @include('front.components.author_component',compact('author'))
                     @endforeach
-
-
                 </div>
 
 

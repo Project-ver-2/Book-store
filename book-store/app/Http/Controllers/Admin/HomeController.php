@@ -16,13 +16,13 @@ class HomeController extends Controller
         $credentials = [
             'email' => $request->email,
             'password' =>$request->password,
-            'level' => 1 //Tk cấp độ admin
+            'level' => Constant::user_level_admin //Tk cấp độ admin
         ];
         $remember = $request->remember;
         if(Auth::attempt($credentials,$remember)){
-            return redirect()->intended('admin');
+            return redirect()->intended('admin/user');
         }else{
-            return back()->with('notification','Sai tài khoản hoặc mật khẩu');
+            return back()->with('notification','Không đủ thẩm quyền,hoặc sai tài khoản');
         }
     }
     public function logout(){

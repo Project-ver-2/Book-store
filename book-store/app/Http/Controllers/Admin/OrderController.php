@@ -72,7 +72,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function cancel(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $order = Order::find($id);
         $order->update($request->all());

@@ -75,7 +75,8 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
         Route::post('/',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckAdminLogin');
     });
 
-    Route::get('logout',[HomeCotroller::class,'logout']);
+    Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
+
 });
 
 

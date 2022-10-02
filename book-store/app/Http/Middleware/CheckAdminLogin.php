@@ -23,7 +23,7 @@ class CheckAdminLogin
             return  redirect()->guest('admin/login');
         }
         //Nếu đã đăng nhập thì đăng xuất và đăng nhập lại
-        if(Auth::user()->level != 1){
+        if(Auth::user()->level != Constant::user_level_admin){
             Auth::logout();
             return  redirect()->guest('admin/login');
         }

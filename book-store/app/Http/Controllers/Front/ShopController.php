@@ -69,7 +69,7 @@ class ShopController extends Controller
         $products->appends(['price_min'=>$priceMin,'price_max'=>$priceMax,'author'=>$request->author]);
         return $products;
     }
-    public function feedback(Request $request,$id){
+    public function postComment(Request $request,$id){
         $data = $request->all();
         $data['product_id'] = $id;
         $data['user_id']=Auth::id();

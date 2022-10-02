@@ -269,5 +269,11 @@
             })
             $(this).append($(el))
         })
+        $('.img-mini').click(function (){
+            let tem = $(this).find('img').attr('src')
+            let srcBig = $('.img-big').find('img').attr('src')
+            $(this).find('img').attr('src',srcBig)
+            $('.img-big').find('img').attr('src',tem)
+        })
     </script>
 @endsection

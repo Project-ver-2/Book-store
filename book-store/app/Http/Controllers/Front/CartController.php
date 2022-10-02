@@ -15,9 +15,8 @@ class CartController extends Controller
 {
     public function index(){
         $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
-        $userId=1;
         $categories = Category::all();
-        $cart_products = User::find($userId)->cart;
+        $cart_products = Auth::user()->cart;
         return view('front.shop.cart',compact('categories','cart_products','totalCart'));
     }
 

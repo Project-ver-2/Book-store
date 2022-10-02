@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-    $('.flipbook').each(function () {
+    $('.wrap-book .flipbook').each(function () {
         $(this).turn({
             width:120*2,
             height:160,
@@ -8,8 +7,6 @@ $(document).ready(function() {
             duration: 1000,
         })
     })
-
-
 
     $('.view-full').click(function () {
         let img  = $(this).parent().find('.img')
@@ -36,7 +33,6 @@ $(document).ready(function() {
         let heightHtml = wrapBook.height()
 
         let zoom  = widthHtml*0.3 / width
-        console.log(zoom,widthHtml,width)
         flipbook.turn('next')
 
 
@@ -76,14 +72,10 @@ $(document).ready(function() {
             let flipbook = $(this).find('.flipbook')
             let width = img.width()
             let height = img.height()
-            // let width = 120
-            // let height = 160
             let top = img.get(0).getBoundingClientRect().y
             let left = img.get(0).getBoundingClientRect().x
             let widthBook = book.width()
             let zoom = 2*width/widthBook
-            console.log(book,widthBook)
-
             flipbook.turn('page',1)
             book.animate({
                 left: left + width/2,
@@ -168,7 +160,9 @@ $(document).ready(function() {
     $('.add-product').click(function (){
         price = $(this).attr('price')
     })
+
 })
+
 
 
 

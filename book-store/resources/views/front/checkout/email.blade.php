@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-<p>Xác nhận đơn hàng #{{Auth::id().$order->id}} thành công.</p>
+<p>Xác nhận đơn hàng #{{Auth::id().$order->id}} thành công.Cám ơn bạn đã đặt hàng!</p>
 <p>Chúng tôi đang chuẩn bị sách và giao cho bạn trong thời gian sớm nhất.</p>
 <p>Chi tiết đơn hàng</p>
 <table class="table table-striped">
