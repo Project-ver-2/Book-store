@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title',request()->segment(2)??'Shop')
 
 @section('body')
     <div class="container">

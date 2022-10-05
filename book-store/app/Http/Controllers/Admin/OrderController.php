@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $search = $request->search;
-        $orders = Order::where('email','like','%'.$search.'%')->paginate(5);
+        $orders = Order::where('email','like','%'.$search.'%')->orderBy('created_at','desc')->paginate(5);
         return view('admin.order.index',compact('orders'));
     }
 

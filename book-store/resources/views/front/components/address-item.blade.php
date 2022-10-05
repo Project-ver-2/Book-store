@@ -23,7 +23,10 @@
         @csrf
         @method('DELETE')
         <input type="text" name="id" hidden value="{{$address->id}}">
-        <button class="btn edit-address edit-delete" style="right: 42px">
+        <button class="btn edit-address edit-delete"
+                style="right: 42px"
+                onclick="confirm('Do you want to delete this address?')?this.form.submit():''"
+        >
             <i style="color: #ee8d80" class="fa-regular fa-trash"></i>
         </button>
     </form>

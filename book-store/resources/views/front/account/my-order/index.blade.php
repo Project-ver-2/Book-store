@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title','History')
 
 @section('body')
     <div class="container">
@@ -42,7 +42,7 @@
                         <table class="table table-products">
                         <tbody style="border: transparent">
                         <tr class="tr-header">
-                            <th class="th-name d-flex" >
+                            <th class="th-name d-flex" style="border: none">
                                 #{{Auth::id().$order->id}} ({{\App\Utilities\Constant::$order_status[$order->status]}})
                                 @if($order->status==\App\Utilities\Constant::order_status_Prepare)
                                     <form action="./account/order/{{$order->id}}" method="post">
@@ -69,10 +69,11 @@
                                     <img src="./front/imgs/products/{{$orderDetail->product->productImages[0]->path}}" alt="">
                                     <a href="./shop/product/{{$orderDetail->product->id}}">{{$orderDetail->product->name}}</a>
                                     @if($order->status==2 &&
-                                    count(\App\Models\ProductComment::where('user_id',Auth::id())
-                                    ->where('order_id',$orderDetail->id)
-                                    ->where('product_id',$orderDetail->product->id)->get()
-                                    )==0)
+                                        \App\Models\ProductComment::where('user_id',Auth::id())
+                                        ->where('order_id',$order->id)
+                                        ->where('product_id',$orderDetail->product->id)
+                                        ->count()<1
+                                    )
                                         <button class="btn text-info fill-book-feedback"><i class="fa-regular fa-message-pen"></i> Feedback</button>
                                     @endif
                                 </div>

@@ -20,7 +20,7 @@ class AddressController extends Controller
     {
         $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
         $categories = Category::all();
-        $addresses = UserAdress::where('user_id',Auth::id())->get();
+        $addresses = UserAdress::where('user_id',Auth::id())->orderBy('default','desc')->get();
         return view('front.account.address.index',compact('totalCart','categories','addresses'));
     }
 
@@ -110,7 +110,13 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        UserAdress::find($id)->delete();
+        $address =  UserAdress::find($id);
+        if($address->default==1 && Auth::user()->userAdresses->count()>1){
+            $setAddressDefault =  Auth::user()->userAdresses->where('default',0)->first();
+            $setAddressDefault->default = 1;
+            $setAddressDefault->save();
+        }
+        $address->delete();
         return  redirect('./account/address');
     }
 }

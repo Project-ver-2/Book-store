@@ -15,7 +15,10 @@ class OrderHistory extends Controller
     public function index(Request $request){
         $totalCart = UserCart::where('user_id',Auth::id())->sum('total');
         $categories = Category::all();
-        $orders = Auth::user()->orders->toQuery()->orderBy('created_at','desc')->get();
+        $orders = Auth::user()->orders;
+        if($orders->count()>0){
+            $orders = $orders->toQuery()->orderBy('created_at','desc')->get();
+        }
         if($request->get('status')!=4 && $request->get('status')!=null){
             $orders = $orders->where('status',$request->get('status'));
         }

@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title',$product->name)
 
 @section('body')
     <div class="container">
@@ -153,7 +153,7 @@
                                     <i class="fa-light fa-star-sharp"></i>
                                 </div>
                                 <div class="count">
-                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',4))/count($product->productComments) : 0}}}}"></div>
+                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',4))/count($product->productComments) : 0}}"></div>
                                     <p>{{count($product->productComments->where('rating',4))}}</p>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     <i class="fa-light fa-star-sharp"></i>
                                 </div>
                                 <div class="count">
-                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',3))/count($product->productComments) : 0}}}}"></div>
+                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',3))/count($product->productComments) : 0}}"></div>
                                     <p>{{count($product->productComments->where('rating',3))}}</p>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                     <i class="fa-light fa-star-sharp"></i>
                                 </div>
                                 <div class="count">
-                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',2))/count($product->productComments) : 0}}}}"></div>
+                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',2))/count($product->productComments) : 0}}"></div>
                                     <p>{{count($product->productComments->where('rating',2))}}</p>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                                     <i class="fa-light fa-star-sharp"></i>
                                 </div>
                                 <div class="count">
-                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',1))/count($product->productComments) : 0}}}}"></div>
+                                    <div class="line" data="{{count($product->productComments)>0 ? count($product->productComments->where('rating',1))/count($product->productComments) : 0}}"></div>
                                     <p>{{count($product->productComments->where('rating',1))}}
                                 </div>
                             </div>

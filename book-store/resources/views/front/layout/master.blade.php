@@ -210,8 +210,8 @@
                             </g>
                         </svg>
                         <div class="animate-price d-none d-md-block">
-                            <span class="price-old">${{$totalCart}}</span>
                             <span class="price-new">${{$totalCart}}</span>
+                            <span class="price-old">${{$totalCart}}</span>
                         </div>
 
                     </a>

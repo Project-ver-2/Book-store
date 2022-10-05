@@ -107,6 +107,10 @@ $(document).ready(function() {
         let addCart = e.target.closest('.add-product')
         if(addCart){
             $(addCart).removeClass('add-product')
+            let pOld = document.querySelector('.price-old').textContent.replace('$','')-''
+            let price = $(this).find('.product-content-price').html().replace('$','')-''
+            let numToFixed = Number.parseFloat(price+pOld).toFixed(1)
+            $('.price-new').html('$'+numToFixed)
             let imgBook = $(this).parents('.product').find('.img')
             let top = imgBook.get(0).getBoundingClientRect().y
             let left = imgBook.get(0).getBoundingClientRect().x
@@ -149,6 +153,9 @@ $(document).ready(function() {
                 imgEl.remove()
                 priceNew.attr('style','')
                 priceOld.attr('style','')
+                $('.price-old').html('$'+numToFixed)
+                priceOld.toggleClass('price-new price-old')
+                priceNew.toggleClass('price-new price-old')
                 priceOld.toggleClass('price-new price-old')
                 priceNew.toggleClass('price-new price-old')
                 $(addCart).addClass('add-product')
@@ -157,9 +164,7 @@ $(document).ready(function() {
 
     })
 
-    $('.add-product').click(function (){
-        price = $(this).attr('price')
-    })
+
 
 })
 

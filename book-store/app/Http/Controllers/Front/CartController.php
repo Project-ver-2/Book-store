@@ -26,9 +26,14 @@ class CartController extends Controller
             'user_id'=>$userId,
             'product_id'=>$id,
             'price'=>Product::find($id)->price,
-            'total'=>Product::find($id)->price
+            'total'=>Product::find($id)->price,
+            'qty'=>1
         ];
         if(count(Auth::user()->cart->where('product_id',$id))>0){
+            $cart = Auth::user()->cart->where('product_id',$id)->first();
+            $cart->qty = $cart->qty+1;
+            $cart->total = $cart->qty*$cart->price;
+            $cart->save();
             return 0;
         }
         $cart = UserCart::create($data);
@@ -59,6 +64,11 @@ class CartController extends Controller
         ];
         if(count(Auth::user()->cart->where('product_id',$id))==0){
             $cart = UserCart::create($data);
+        }else{
+            $cart = Auth::user()->cart->where('product_id',$id)->first();
+            $cart->qty = $cart->qty+1;
+            $cart->total = $cart->qty*$cart->price;
+            $cart->save();
         }
         return redirect('./cart');
     }

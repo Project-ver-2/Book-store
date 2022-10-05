@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title','Cart')
 
 @section('body')
     <div class="container">

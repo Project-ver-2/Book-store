@@ -4,7 +4,8 @@
     </div>
     <div class="user-feedback-content">
         <div>
-            <span class="user-feedback-name">{{\App\Models\User::where('id',$comment->user_id)->first()->name}}</span>
+            <span class="user-feedback-name">{{\App\Models\User::where('id',$comment->user_id)->first()->name}} </span>
+            <span style="font-weight: 400;font-size: 14px"> {{date('d/m/Y',strtotime($comment->created_at))}}</span>
             <span
                 style="display:block;font-size: 12px;color: #fdd836;margin-top: 4px"
             >

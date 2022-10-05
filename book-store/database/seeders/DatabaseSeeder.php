@@ -518,7 +518,7 @@ class DatabaseSeeder extends Seeder
             ,
             [
                 'product_id'=>7,
-                'path'=>'ds10_0.png'
+                'path'=>'gbthh_0.png'
             ],
             [
                 'product_id'=>7,
@@ -544,7 +544,7 @@ class DatabaseSeeder extends Seeder
             ,
             [
                 'product_id'=>8,
-                'path'=>'ds10_0.png'
+                'path'=>'gbtvl_0.png'
             ],
             [
                 'product_id'=>8,
@@ -570,7 +570,7 @@ class DatabaseSeeder extends Seeder
             ,
             [
                 'product_id'=>9,
-                'path'=>'ds10_0.png'
+                'path'=>'gbtvl_0.png'
             ],
             [
                 'product_id'=>9,
@@ -596,7 +596,7 @@ class DatabaseSeeder extends Seeder
             ,
             [
                 'product_id'=>10,
-                'path'=>'ds10_0.png'
+                'path'=>'htng_0.png'
             ],
             [
                 'product_id'=>10,
